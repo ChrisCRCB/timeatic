@@ -95,6 +95,8 @@ class TimerScreenState extends State<TimerScreen> {
     remainingSeconds--;
     if (remainingSeconds == 0) {
       HapticFeedback.vibrate();
+    } else if ((remainingSeconds % 10) == 0) {
+      HapticFeedback.vibrate();
     } else if ((remainingSeconds % 5) == 0) {
       HapticFeedback.lightImpact();
     } else if (remainingSeconds <= 10) {

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import '../widgets/number_button.dart';
 import '../widgets/number_text.dart';
+import '../widgets/suggested_times.dart';
 import 'timer_screen.dart';
 
 /// A screen to set the time.
@@ -66,6 +67,14 @@ class SetTimeScreenState extends State<SetTimeScreen> {
               return Column(
                 children: [
                   Expanded(
+                    flex: 5,
+                    child: SuggestedTimes(
+                      onDone: (final value) => context.pushWidgetBuilder(
+                        (final context) => TimerScreen(seconds: value),
+                      ),
+                    ),
+                  ),
+                  Expanded(
                     flex: 3,
                     child: Center(
                       child: NumberText(number: seconds),
@@ -82,6 +91,14 @@ class SetTimeScreenState extends State<SetTimeScreen> {
             case Orientation.landscape:
               return Row(
                 children: [
+                  Expanded(
+                    flex: 4,
+                    child: SuggestedTimes(
+                      onDone: (final value) => context.pushWidgetBuilder(
+                        (final context) => TimerScreen(seconds: value),
+                      ),
+                    ),
+                  ),
                   minusColumn,
                   Expanded(
                     flex: 3,
